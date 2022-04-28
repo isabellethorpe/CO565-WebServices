@@ -7,3 +7,5 @@
    </head>
 
    <body>
+
+   <h1>Meal Planner</h1>

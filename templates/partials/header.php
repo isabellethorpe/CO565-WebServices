@@ -1,7 +1,7 @@
 <html>
 
    <head>
-      <title>BNU Student Web Application</title>
+      <title>Meal Planner App</title>
       <!-- styles and JS here -->
 
    </head>

@@ -7,3 +7,12 @@ Contributors:
 <li>Isabelle Thorpe</li>
 <li>Jon Jackson</li>
 <li>Kayley Syrett</li>
+
+## Local Development Environment
+
+- XAMPP recommended 
+
+## Setup Instructions
+
+- Clone repo to local htdocs folder
+- Setup empty database on localhost (named "co565_db")

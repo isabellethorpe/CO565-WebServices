@@ -12,15 +12,14 @@ include "passwordLib.php";
 function validatelogin($id,$password) {
    global $conn;
    // Build an SQL statment that will return a record with a matching id
-   $sql = "select * from student where studentid='$id';";
+   $sql = "select * from users where email='$id';";
 	//echo $sql;
    $loginresult = mysqli_query($conn, $sql);
-   $studentdetails = mysqli_fetch_assoc($loginresult);
-	//print_r($studentdetails);
+   $userdetails = mysqli_fetch_assoc($loginresult);
 
 	// use PHP's verify_password function to check whether the stored
 	// hash matches the given password
-	if (password_verify($password, $studentdetails['password'])) {
+	if (password_verify($password, $userdetails['password'])) {
 		$_SESSION['id'] = $id;
 		return true;
 	}

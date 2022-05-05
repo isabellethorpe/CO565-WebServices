@@ -15,6 +15,10 @@ class ChildrenSeeder extends AbstractSeed
      */
     public function run()
     {
+
+        // empty children table
+        $this->table('children')->truncate();
+        
         $data = [
             [
                 'parent_id'    => 1,

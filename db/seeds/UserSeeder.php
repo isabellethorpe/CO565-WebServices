@@ -15,6 +15,9 @@ class UserSeeder extends AbstractSeed
      */
     public function run()
     {
+
+        $this->table('users')->truncate();
+
         $data = [
             [
                 'email'    => 'nigellalawson@microwave.com',

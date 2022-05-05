@@ -21,3 +21,8 @@ Contributors:
 - run `composer install`
 - run `vendor/bin/phinx migrate -e development`
 - run `vendor/bin/phinx seed:run -e development`
+
+## Default Admin Login
+
+- User ID: nigellalawson@microwave.com
+- Password: password

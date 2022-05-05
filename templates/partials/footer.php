@@ -1,7 +1,8 @@
 <body class="d-flex flex-column min-vh-100">
 
-<footer class="mt-auto">
-Copyright &copy; 2022 Meal Planner App</footer>
+<div class="text-white mb-3 mb-md-0">
+      Copyright © 2022. Meal planner App
+    </div>
 
 </div>
 

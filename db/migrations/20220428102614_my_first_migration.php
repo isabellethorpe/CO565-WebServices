@@ -18,6 +18,7 @@ final class MyFirstMigration extends AbstractMigration
      */
     public function change(): void
     {
+        // Users table
         $users = $this->table('users');
         $users
               ->addColumn('password', 'string', ['limit' => 300])
@@ -32,16 +33,45 @@ final class MyFirstMigration extends AbstractMigration
               ->addColumn('updated', 'datetime', ['null' => true])
               ->addIndex(['email'], ['unique' => true])
               ->create();
+              
+
+        // Meals table
+        $meals = $this->table('meals');
+        $meals
+              ->addColumn('name', 'string', ['limit' => 150])
+              ->addColumn('weight', 'integer') 
+              ->addColumn('description', 'text', ['limit' => 300])
+              ->addColumn('calories', 'integer')
+              ->create();
+
+
+        // Children table
+        $children = $this->table('children');
+        $children
+              ->addColumn('parent_id', 'integer')
+              ->addColumn('name', 'string', ['limit' => 60]) 
+              ->addColumn('special_requirements', 'boolean')
+              ->create();
+
+              
+        // Meal Planning table
+        $meal_planning = $this->table('meal_planning');
+        $meal_planning
+              ->addColumn('child_id', 'integer')
+              ->addColumn('meal_id', 'integer')
+              ->addColumn('date', 'datetime')
+              ->create();
+
+
+        // Notifications table
+        $notifications = $this->table('notifications');
+        $notifications
+              ->addColumn('child_id', 'integer')
+              ->addColumn('parent_id', 'integer')
+              ->addColumn('notification_sent', 'boolean') 
+              ->addColumn('type', 'string', ['limit' => 25])
+              ->addColumn('sent', 'datetime')
+              ->create();
     }
 }
 
-/*
-users
-- user_id (PK)
-- email
-- password
-- user_type (admin, parent)
-- tel (text)
-- email_notifications (boolean)
-- sms_notifications (boolean)
-*/

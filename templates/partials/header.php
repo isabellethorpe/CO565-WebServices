@@ -13,5 +13,3 @@
 
    <div class="container">
    <h1>The Real Meal</h1>
-</div>
-</body>

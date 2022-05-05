@@ -20,7 +20,7 @@ final class MyFirstMigration extends AbstractMigration
     {
         $users = $this->table('users');
         $users
-              ->addColumn('password', 'string', ['limit' => 40])
+              ->addColumn('password', 'string', ['limit' => 300])
               ->addColumn('email', 'string', ['limit' => 100])
               ->addColumn('mobile', 'string', ['limit' => 20])
               ->addColumn('first_name', 'string', ['limit' => 100])

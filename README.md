@@ -10,9 +10,14 @@ Contributors:
 
 ## Local Development Environment
 
-- XAMPP recommended 
+- XAMPP recommended (PHP 8.x)
+- Git
+- Composer (https://getcomposer.org/)
 
 ## Setup Instructions
 
 - Clone repo to local htdocs folder
 - Setup empty database on localhost (named "co565_db")
+- run `composer install`
+- run `vendor/bin/phinx migrate -e development`
+- run `vendor/bin/phinx seed:run -e development`

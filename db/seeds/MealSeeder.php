@@ -15,6 +15,9 @@ class MealSeeder extends AbstractSeed
      */
     public function run()
     {
+
+        $this->table('meals')->truncate();
+
         $data = [
             [
                 'name'    => 'Spaghetti Bolognese',

@@ -15,6 +15,9 @@ class Meal_PlanningSeeder extends AbstractSeed
      */
     public function run()
     {
+
+        $this->table('meal_planning')->truncate();
+
         $data = [
             [
                 'child_id'    => 1,

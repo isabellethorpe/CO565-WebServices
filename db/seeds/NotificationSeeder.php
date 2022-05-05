@@ -15,6 +15,8 @@ class NotificationSeeder extends AbstractSeed
      */
     public function run()
     {
+        $this->table('notifications')->truncate();
+
         $data = [
             [
                 'child_id'    => 1,

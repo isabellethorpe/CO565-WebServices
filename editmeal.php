@@ -16,7 +16,7 @@ if (isset($_SESSION['id'])) {
 
       // build an sql statment to update the meal details
       // update meals sql
-      $sql = "update meals set name = '$_POST[name]', weight = '$_POST[weight]', description = '$_POST[description]', calories = '$_POST[calories]' where id = '$_POST[id]'";
+      $sql = "UPDATE meals set name = '$_POST[name]', weight = '$_POST[weight]', description = '$_POST[description]', calories = '$_POST[calories]' where id = '$_POST[id]'";
 
       $result = mysqli_query($conn,$sql);
 

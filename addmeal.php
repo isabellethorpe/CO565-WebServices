@@ -14,13 +14,17 @@ if (isset($_SESSION['id'])) {
    // if the form has been submitted
    if (isset($_POST['submit'])) {
 
-      // build an sql statment to update the meal details
-      // add meals sql
+      $search_string = $_POST["weight"] . "g " . $_POST["name"];
+
+      $raw_data = file_get_contents("https://api.edamam.com/api/nutrition-data?app_id=f3eb346c&app_key=9cc8a7ffb18a5cbbd9e92e5272496bf6&nutrition-type=cooking&ingr=" . urlencode($search_string));
+
+      //TODO: $raw_data can be stored raw in database nutrition_data field
+
+      $data_decoded = json_decode($raw_data, true);
 
       $_POST["weight"] = (int)$_POST["weight"];
-      $_POST["calories"] = (int)$_POST["calories"];
 
-      $sql = "insert into meals (name, weight, description, calories) values ('$_POST[name]', '$_POST[weight]', '$_POST[description]', '$_POST[calories]');";
+      $sql = "insert into meals (name, weight, description, calories) values ('$_POST[name]', '$_POST[weight]', '$_POST[description]', '{$data_decoded["calories"]}');";
 
       $result = mysqli_query($conn,$sql);
 
@@ -39,8 +43,6 @@ if (isset($_SESSION['id'])) {
    <input name="weight" type="text" value="" /><br/>
    Description :
    <input name="description" type="text" value="" /><br/>
-   Calories :
-   <input name="calories" type="text" value="" /><br/>
    <input type="submit" value="Save" name="submit"/>
    </form>
 EOD;

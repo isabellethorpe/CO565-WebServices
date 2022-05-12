@@ -18,7 +18,7 @@
 
       $data['content'] .= <<<EOD
       <h2>Children</h2>
-      <a href="addchild.php" class="btn btn-primary mb-2">Add Child</a>
+      <a href="addchildren.php" class="btn btn-primary mb-2">Add Child</a>
 EOD;
 
       //TODO: Add Fat, Carbs, and Protein

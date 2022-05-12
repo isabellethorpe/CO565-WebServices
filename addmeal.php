@@ -24,7 +24,7 @@ if (isset($_SESSION['id'])) {
 
       $_POST["weight"] = (int)$_POST["weight"];
 
-      $sql = "insert into meals (name, weight, description, calories) values ('$_POST[name]', '$_POST[weight]', '$_POST[description]', '{$data_decoded["calories"]}');";
+      $sql = "insert into meals (name, weight, description, calories, nutrition_data) values ('$_POST[name]', '$_POST[weight]', '$_POST[description]', '{$data_decoded["calories"]}', '$raw_data');";
 
       $result = mysqli_query($conn,$sql);
 

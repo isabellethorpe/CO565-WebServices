@@ -8,23 +8,21 @@
     <a class="navbar-brand" href="#">Munched</a>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="modules.php">My Modules</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="assignmodule.php">Assign Module</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="meals.php">Meals</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="children.php">Children</a>
-        </li>
+        <?php if ($_SESSION['user_type'] == "admin") { ?>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="meals.php">Meals</a>
+          </li>
+        <?php } ?>
+        <?php if ($_SESSION['user_type'] == "parent") { ?>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="children.php">Children</a>
+          </li>
+        <?php } ?>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="details.php">My details</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="logout.php">logout</a>
+          <a class="nav-link active" aria-current="page" href="logout.php">Logout (<?= $_SESSION['user_type'] ?>)</a>
         </li>
       </ul>
       <form class="d-flex">

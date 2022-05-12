@@ -21,10 +21,12 @@ function validatelogin($id,$password) {
 	// hash matches the given password
 	if (password_verify($password, $userdetails['password'])) {
 		$_SESSION['id'] = $id;
+		$_SESSION['user_type'] = $userdetails['user_type'];
 		return true;
 	}
 	else {
 		$_SESSION['id'] = '';
+		$_SESSION['user_type'] = "";
 		return false;
 	}
 }

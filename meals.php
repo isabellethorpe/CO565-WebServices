@@ -6,7 +6,7 @@
 
 
    // check logged in
-   if (isset($_SESSION['id'])) {
+   if (isset($_SESSION['id']) && $_SESSION['user_type'] == "admin") {
 
       echo template("templates/partials/header.php");
       echo template("templates/partials/nav.php");

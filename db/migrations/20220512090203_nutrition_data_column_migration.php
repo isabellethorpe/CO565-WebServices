@@ -19,7 +19,7 @@ final class NutritionDataColumnMigration extends AbstractMigration
     public function change(): void
     {
         $table = $this->table('meals');
-        $table->addColumn('nutrition_data', 'text', ['after' => 'calories'])
+        $table->addColumn('nutrition_data', 'text', ['null' => true, 'after' => 'calories'])
               ->update();
     }
 }

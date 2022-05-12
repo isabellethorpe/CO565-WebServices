@@ -18,6 +18,9 @@
           <a class="nav-link active" aria-current="page" href="meals.php">Meals</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="children.php">Children</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="details.php">My details</a>
         </li>
         <li class="nav-item">

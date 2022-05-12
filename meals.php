@@ -52,7 +52,7 @@ EOD;
             <td> " . ($carbs["quantity"] ?? "") . ($carbs["unit"] ?? "") . "</td>
             <td> " . ($protein["quantity"] ?? "") . ($protein["unit"] ?? "") . "</td>
             <td> {$row["calories"]} </td>
-            <td><a href='editmeal.php?id=".$row['id']."'>Edit</a> | Delete</td>
+            <td><a href='editmeal.php?id=".$row['id']."'>Edit</a> | <a href='deletemeal.php?id=".$row['id']."'>Delete</td>
          </tr>";
       }
 

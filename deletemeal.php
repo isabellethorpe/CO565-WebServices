@@ -7,18 +7,15 @@
 
    // check logged in
    if (isset($_SESSION['id'])) {
-
-    // redirect if meal is empty
-    if (empty($_POST['meals'])) {
-        // pop up error message?
-        header("Location: meals.php");
-    }
-
-    // Loop over students and SQL query to delete item
-    foreach($_POST['meals'] as $meal) {
-        $sql = "DELETE FROM meals WHERE id = $meal";
+        
+        $sql = "DELETE from meals where id=". $_GET['id'] . ";";
+        echo $sql;
+        //$row = mysqli_fetch_array($result);
         $result = mysqli_query($conn,$sql);
-    }
+
+
+        // boostrap confirmation message
+        $data['content'] .= "<div class='alert alert-success' role='alert'>Meal deleted successfully</div>";
     
     // redirect
     header("Location: meals.php");
@@ -26,6 +23,5 @@
    } else {
       header("Location: index.php");
    }
-
 
 ?>

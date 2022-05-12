@@ -29,6 +29,18 @@ class UserSeeder extends AbstractSeed
                 'email_notifications'    => 1,
                 'sms_notifications'    => 1,
                 'created' => date('Y-m-d H:i:s'),
+            ],
+
+            [
+                'email'    => 'jonjackson@munched.com',
+                'mobile'    => '07696969696',
+                'first_name'    => 'Jon',
+                'last_name'    => 'Jackson',
+                'password'      => password_hash('password', PASSWORD_DEFAULT),
+                'user_type'    => 'parent',
+                'email_notifications'    => 1,
+                'sms_notifications'    => 1,
+                'created' => date('Y-m-d H:i:s'),
             ]
         ];
 

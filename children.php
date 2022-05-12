@@ -33,13 +33,7 @@ EOD;
 
       // Display the children within the html table
       while($row = mysqli_fetch_array($result)) {
-         // $nutrition_data = array();
-         // if (!empty($row["nutrition_data"])) {
-         //    $nutrition_data = json_decode($row["nutrition_data"], true);
-         // }
-         // $fat = ($nutrition_data["totalNutrients"]["FAT"] ?? array());
-         // $carbs = ($nutrition_data["totalNutrients"]["CHOCDF"] ?? array());
-         // $protein = ($nutrition_data["totalNutrients"]["PROCNT"] ?? array());
+
 
          $data['content'] .= "<tr>
             <td> {$row["name"]} </td>

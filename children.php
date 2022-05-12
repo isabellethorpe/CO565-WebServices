@@ -39,7 +39,7 @@ EOD;
             <td> {$row["name"]} </td>
             <td> {$row["special_requirements"]} </td>
 
-            <td><a href='editchild.php?id=".$row['id']."'>Edit</a> | <a href='deletechild.php?id=".$row['id']."'>Delete</td>
+            <td><a href='editchildren.php?id=".$row['id']."'>Edit</a> | <a href='deletechild.php?id=".$row['id']."'>Delete</td>
          </tr>";
       }
 

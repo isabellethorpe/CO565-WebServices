@@ -18,8 +18,6 @@ if (isset($_SESSION['id'])) {
 
       $raw_data = file_get_contents("https://api.edamam.com/api/nutrition-data?app_id=f3eb346c&app_key=9cc8a7ffb18a5cbbd9e92e5272496bf6&nutrition-type=cooking&ingr=" . urlencode($search_string));
 
-      //TODO: $raw_data can be stored raw in database nutrition_data field
-
       $data_decoded = json_decode($raw_data, true);
 
       $_POST["weight"] = (int)$_POST["weight"];

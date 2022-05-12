@@ -24,8 +24,10 @@ EOD;
       //TODO: Add Fat, Carbs, and Protein
 
       // prepare page content
-      $data['content'] .= "<table class='table' border='1'>";
-      $data['content'] .= "<tr>
+      $data['content'] .= "
+      <div class='table-responsive'>
+      <table class='table' border='1'>
+      <tr>
          <th>Name</th>
          <th>Weight (g)</th>
          <th>Description</th>
@@ -56,7 +58,7 @@ EOD;
          </tr>";
       }
 
-      $data['content'] .= "</table>";
+      $data['content'] .= "</div></table>";
 
       // render the template
       echo template("templates/default.php", $data);

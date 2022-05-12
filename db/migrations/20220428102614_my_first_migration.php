@@ -50,7 +50,7 @@ final class MyFirstMigration extends AbstractMigration
         $children
               ->addColumn('parent_id', 'integer')
               ->addColumn('name', 'string', ['limit' => 60]) 
-              ->addColumn('special_requirements', 'boolean')
+              ->addColumn('special_requirements', 'string')
               ->create();
 
               

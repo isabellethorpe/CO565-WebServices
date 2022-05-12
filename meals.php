@@ -36,7 +36,7 @@ EOD;
          <th>Protein</th>
          <th>Calories</th>
          <th></th></tr>";
-      // Display the modules within the html table
+      // Display the meals within the html table
       while($row = mysqli_fetch_array($result)) {
          $nutrition_data = array();
          if (!empty($row["nutrition_data"])) {

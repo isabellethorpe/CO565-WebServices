@@ -18,17 +18,24 @@
         <form>
           <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
             <p class="lead fw-normal mb-0 me-3">Sign in Munched with</p>
-            <button type="button" class="btn btn-primary btn-floating mx-1">
-            <i class="fa-brands fa-google"></i>
-            </button>
 
-            <button type="button" class="btn btn-primary btn-floating mx-1">
+            <a href=" https://myaccount.google.com"
+              <button type="button" class="btn btn-primary btn-floating mx-1">
+              <i class="fa-brands fa-google"></i>
+              </button>
+            </a>    
+
+            <a href="https://twitter.com/?lang=en"
+              <button type="button" class="btn btn-primary btn-floating mx-1">
               <i class="fab fa-twitter"></i>
-            </button>
+              </button>
+            </a>
 
-            <button type="button" class="btn btn-primary btn-floating mx-1">
+            <a href="https://www.linkedin.com/login?fromSignIn=true&trk=guest_homepage-basic_nav-header-signin"
+              <button type="button" class="btn btn-primary btn-floating mx-1">
               <i class="fab fa-linkedin-in"></i>
-            </button>
+              </button>
+              </a>
           </div>
 
           <div class="divider d-flex align-items-center my-4">

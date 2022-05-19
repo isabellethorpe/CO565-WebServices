@@ -3,7 +3,7 @@
 
 use Phinx\Seed\AbstractSeed;
 
-class Meal_PlanningSeeder extends AbstractSeed
+class MealPlanningSeeder extends AbstractSeed
 {
     /**
      * Run Method.

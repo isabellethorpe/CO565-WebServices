@@ -3,7 +3,7 @@
 App that allows parents/ minders to choose their children's school meals and see the nutrional information in each meal
 
 Contributors:
-<li>Atish Addapu</li>
+<li>Atish Appadu</li>
 <li>Isabelle Thorpe</li>
 <li>Jon Jackson</li>
 <li>Kayley Syrett</li>
@@ -22,7 +22,14 @@ Contributors:
 - run `vendor/bin/phinx migrate -e development`
 - run `vendor/bin/phinx seed:run -e development`
 
-## Default Admin Login
+## Default Logins
+
+### Admin
 
 - User ID: nigellalawson@microwave.com
+- Password: password
+
+### Parent
+
+- User ID: jonjackson@munched.com
 - Password: password

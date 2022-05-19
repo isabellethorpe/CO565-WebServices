@@ -1,75 +1,69 @@
 <?php
 
-include("_includes/config.inc");
-include("_includes/dbconnect.inc");
-include("_includes/functions.inc");
+   include("_includes/config.inc");
+   include("_includes/dbconnect.inc");
+   include("_includes/functions.inc");
 
 
-// check logged in
-if (isset($_SESSION['id'])) {
+   // check logged in
+   if (isset($_SESSION['id'])) {
 
-   echo template("templates/partials/header.php");
-   echo template("templates/partials/nav.php");
+      echo template("templates/partials/header.php");
+      echo template("templates/partials/nav.php");
 
-   // if the form has been submitted
-   if (isset($_POST['submit'])) {
+      // Build SQL statment that selects all from users
+      // Need to add in user session?
+      $sql = "SELECT * from users;";
+      //where id='". $_GET['id'] . "';"; ??
 
-      // build an sql statment to update the student details
-      $sql = "update student set firstname ='" . $_POST['txtfirstname'] . "',";
-      $sql .= "lastname ='" . $_POST['txtlastname']  . "',";
-      $sql .= "house ='" . $_POST['txthouse']  . "',";
-      $sql .= "town ='" . $_POST['txttown']  . "',";
-      $sql .= "county ='" . $_POST['txtcounty']  . "',";
-      $sql .= "country ='" . $_POST['txtcountry']  . "',";
-      $sql .= "postcode ='" . $_POST['txtpostcode']  . "' ";
-      $sql .= "where studentid = '" . $_SESSION['id'] . "';";
-      $result = mysqli_query($conn,$sql);
-
-      $data['content'] = "<p>Your details have been updated</p>";
-
-   }
-   else {
-      // Build a SQL statment to return the student record with the id that
-      // matches that of the session variable.
-      $sql = "select * from student where studentid='". $_SESSION['id'] . "';";
       $result = mysqli_query($conn,$sql);
       $row = mysqli_fetch_array($result);
 
-      // using <<<EOD notation to allow building of a multi-line string
-      // see http://stackoverflow.com/questions/6924193/what-is-the-use-of-eod-in-php for info
-      // also http://stackoverflow.com/questions/8280360/formatting-an-array-value-inside-a-heredoc
-      $data['content'] = <<<EOD
 
-   <h2>My Details</h2>
-   <form name="frmdetails" action="" method="post">
-   First Name :
-   <input name="txtfirstname" type="text" value="{$row['firstname']}" /><br/>
-   Surname :
-   <input name="txtlastname" type="text"  value="{$row['lastname']}" /><br/>
-   Number and Street :
-   <input name="txthouse" type="text"  value="{$row['house']}" /><br/>
-   Town :
-   <input name="txttown" type="text"  value="{$row['town']}" /><br/>
-   County :
-   <input name="txtcounty" type="text"  value="{$row['county']}" /><br/>
-   Country :
-   <input name="txtcountry" type="text"  value="{$row['country']}" /><br/>
-   Postcode :
-   <input name="txtpostcode" type="text"  value="{$row['postcode']}" /><br/>
-   <input type="submit" value="Save" name="submit"/>
-   </form>
-
+      $data['content'] .= <<<EOD
+      <h2>Details</h2>
+     
 EOD;
 
+      // prepare page content
+      $data['content'] .= "<div class='table-responsive'>
+      <table class='table' border='1'>";
+      $data['content'] .= "<tr>
+         <th>First Name</th>
+         <th>Surname</th>
+         <th>Email</th>
+         <th>Mobile</th>
+         <th>Email Notifications</th>
+         <th>SMS Notifications</th>
+         <th>Password</th>
+         <th></th></tr>";
+
+
+      // Display the children within the html table
+      while($row = mysqli_fetch_array($result)) {
+
+
+         $data['content'] .= "<tr>
+            <td> {$row["first_name"]} </td>
+            <td> {$row["last_name"]} </td>
+            <td> {$row["email"]} </td>
+            <td> {$row["mobile"]} </td>
+            <td> {$row["email_notifications"]} </td>
+            <td> {$row["sms_notifications"]} </td>
+            <td> {$row["password"]} </td>
+
+            <td><a href='editdetails.php?id=".$row['id']."'>Edit Details</a> </td></tr>";
+      }
+
+      $data['content'] .= "</table>";
+
+      // render the template
+      echo template("templates/default.php", $data);
+
+   } else {
+      header("Location: index.php");
    }
 
-   // render the template
-   echo template("templates/default.php", $data);
-
-} else {
-   header("Location: index.php");
-}
-
-echo template("templates/partials/footer.php");
+   echo template("templates/partials/footer.php");
 
 ?>

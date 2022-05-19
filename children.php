@@ -18,7 +18,7 @@
 
       $data['content'] .= <<<EOD
       <h2>Children</h2>
-      <a href="addchild.php" class="btn btn-primary mb-2">Add Child</a>
+      <a href="addchildren.php" class="btn btn-primary mb-2">Add Child</a>
 EOD;
 
       //TODO: Add Fat, Carbs, and Protein
@@ -39,7 +39,7 @@ EOD;
             <td> {$row["name"]} </td>
             <td> {$row["special_requirements"]} </td>
 
-            <td><a href='editchild.php?id=".$row['id']."'>Edit</a> | <a href='deletechild.php?id=".$row['id']."'>Delete</td>
+            <td><a href='editchildren.php?id=".$row['id']."'>Edit</a> | <a href='deletechildren.php?id=".$row['id']."'>Delete</td>
          </tr>";
       }
 

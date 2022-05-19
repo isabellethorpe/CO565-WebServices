@@ -47,20 +47,20 @@ if (isset($_SESSION['id'])) {
 
       $sql = "select * from meal_planning where child_id='". $_GET['id'] . "';";
       $result = mysqli_query($conn,$sql);
-      $row = mysqli_fetch_assoc($result);
 
-      $sql = "select * from children where id='". $_GET['id'] . "';";
-      $result = mysqli_query($conn,$sql);
-      $child = mysqli_fetch_assoc($result);
+      $meal_planning_array = array();
+      
+      while ($meal_plan_entry = mysqli_fetch_assoc($result)) {
+         $date = date("Y-m-d", strtotime($meal_plan_entry['date']));
+         $meal_planning_array[$date] = $meal_plan_entry['meal_id'];
+      }
+
+      // echo "<pre>";
+      // print_r($meal_planning_array);
+      // echo "</pre>";
 
       $sql = "select * from meals;";
       $result = mysqli_query($conn,$sql);
-
-      // make select item for each meal
-      $meal_options = "";
-      while ($meal = mysqli_fetch_assoc($result)) {
-         $meal_options .= "<option value='" . $meal['id'] . "'>" . $meal['name'] . "</option>";
-      }
 
       // get next week's dates
       $meal_dates = get_dates_for_week("next monday");
@@ -68,6 +68,25 @@ if (isset($_SESSION['id'])) {
       $dates_form_fields = "";
       foreach ($meal_dates as $date)
       {
+
+         // make select item for each meal
+         $meal_options = "";
+         mysqli_data_seek($result,0);
+         while ($meal = mysqli_fetch_assoc($result)) {
+            if ( isset($meal_planning_array[$date]) ) {
+               if ($meal['id'] == $meal_planning_array[$date]) {
+                  $selected = "selected";
+               }
+               else {
+                  $selected = "";
+               }
+            }
+            else {
+               $selected = "";
+            }
+            $meal_options .= "<option $selected value='" . $meal['id'] . "'>" . $meal['name'] . "</option>";
+         }
+
          // human readable date
          $human_readable_date = date("l jS F", strtotime($date));
          $dates_form_fields .= <<<EOD
@@ -81,6 +100,13 @@ if (isset($_SESSION['id'])) {
          </div>
 EOD;
       }
+
+
+
+      $sql = "select * from children where id='". $_GET['id'] . "';";
+      $result = mysqli_query($conn,$sql);
+      $child = mysqli_fetch_assoc($result);
+
 
       $data['content'] = <<<EOD
       <h2>Meal Planning for {$child['name']}</h2>

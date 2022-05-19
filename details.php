@@ -38,10 +38,8 @@ EOD;
          <th>Password</th>
          <th></th></tr>";
 
-
       // Display the children within the html table
       while($row = mysqli_fetch_array($result)) {
-
 
          $data['content'] .= "<tr>
             <td> {$row["first_name"]} </td>

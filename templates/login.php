@@ -11,8 +11,9 @@
   <div class="container-fluid h-custom">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-md-9 col-lg-6 col-xl-5">
-        <img src="https://picsum.photos/500/700"
-          class="img-fluid" alt="Sample image">
+       <!-- <img src="https://picsum.photos/500/700"
+          class="img-fluid" alt="Sample image"> -->
+          <iframe src="https://gifer.com/embed/Dyl3" width=480 height=360.000 frameBorder="0" allowFullScreen></iframe><p>
       </div>
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
         <form>
@@ -70,6 +71,8 @@
             <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="#!"
                 class="link-danger">Register</a></p>
           </div>
+
+        
 
         </form>
       </div>

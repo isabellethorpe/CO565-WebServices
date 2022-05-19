@@ -26,16 +26,21 @@ if (isset($_SESSION['id'])) {
 
       //TODO: store the meal planning data
       // foreach loop over $_POST
-         // key = the date
+         // key = the date - example: $_POST['2022-05-23'] 
+            // if (!empty($_POST['2022-05-23'] )) {
+               // save an entry to the database
+            // }
          // value = the meal_id
          // child_id is $_GET['id']
+
          // run a sql query for each date and meal_id
-         // $sql = "";
+         // $sql = "INSERT INTO meal_planning (child_id, meal_id, date) VALUES (REPLACE_THIS, REPLACE_THIS, '2022-05-23')";
+
          // $result = mysql_query($sql);
       
-      // echo "<pre>";
-      // print_r($_POST);
-      // echo "</pre>";
+      echo "<pre>";
+      print_r($_POST);
+      echo "</pre>";
 
       $result = mysqli_query($conn,$sql);
 

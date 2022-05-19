@@ -39,7 +39,9 @@ EOD;
             <td> {$row["name"]} </td>
             <td> {$row["special_requirements"]} </td>
 
-            <td><a href='editchildren.php?id=".$row['id']."'>Edit</a> | <a href='deletechildren.php?id=".$row['id']."'>Delete</td>
+            <td><a href='editchildren.php?id=".$row['id']."'>Edit</a> 
+            | <a href='deletechildren.php?id=".$row['id']."'>Delete</a>
+            | <a href='mealplanning.php?id=".$row['id']."'>Meal Planner</a></td>
          </tr>";
       }
 

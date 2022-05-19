@@ -22,7 +22,14 @@ Contributors:
 - run `vendor/bin/phinx migrate -e development`
 - run `vendor/bin/phinx seed:run -e development`
 
-## Default Admin Login
+## Default Logins
+
+### Admin
 
 - User ID: nigellalawson@microwave.com
+- Password: password
+
+### Parent
+
+- User ID: jonjackson@munched.com
 - Password: password

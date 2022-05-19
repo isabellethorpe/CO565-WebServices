@@ -24,9 +24,18 @@ if (isset($_SESSION['id'])) {
    // if the form has been submitted
    if (isset($_POST['submit'])) {
 
-      //TODO: change this to store meal planning data
-      // store the meal planning data
-      // $sql = "UPDATE children set name = '$_POST[name]', special_requirements = '$_POST[special_requirements]' where id = '$_POST[id]'";
+      //TODO: store the meal planning data
+      // foreach loop over $_POST
+         // key = the date
+         // value = the meal_id
+         // child_id is $_GET['id']
+         // run a sql query for each date and meal_id
+         // $sql = "";
+         // $result = mysql_query($sql);
+      
+      // echo "<pre>";
+      // print_r($_POST);
+      // echo "</pre>";
 
       $result = mysqli_query($conn,$sql);
 

@@ -20,6 +20,7 @@ if($result->num_rows > 0){
     $mealRecords["meals"]=array(); 
 	while ($meal = $result->fetch_assoc()) { 	
         extract($meal); 
+        $nutrition_data = json_decode($nutrition_data);
         $mealDetails=array(
             "id" => $id,
             "name" => $name,

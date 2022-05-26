@@ -8,9 +8,9 @@ include_once '../class/Meals.php';
 $database = new Database();
 $db = $database->getConnection();
  
-$items = new Meals($db);
+$meals = new Meals($db);
 
-$items->id = (isset($_GET['id']) && $_GET['id']) ? $_GET['id'] : '0';
+$meals->id = (isset($_GET['id']) && $_GET['id']) ? $_GET['id'] : '0';
 
 $result = $meals->read();
 
@@ -32,7 +32,7 @@ if($result->num_rows > 0){
        array_push($mealRecords["meals"], $mealDetails);
     }    
     http_response_code(200);     
-    echo json_encode($itemRecords);
+    echo json_encode($mealRecords);
 }else{     
     http_response_code(404);     
     echo json_encode(

@@ -12,24 +12,24 @@ $items = new Meals($db);
 
 $items->id = (isset($_GET['id']) && $_GET['id']) ? $_GET['id'] : '0';
 
-$result = $items->read();
+$result = $meals->read();
 
+// TODO: Item records?
 if($result->num_rows > 0){    
-    $itemRecords=array();
-    $itemRecords["meals"]=array(); 
-	while ($item = $result->fetch_assoc()) { 	
+    $mealRecords=array();
+    $mealRecords["meals"]=array(); 
+	while ($meal = $result->fetch_assoc()) { 	
         extract($meal); 
-        $itemDetails=array(
+        $mealDetails=array(
             "id" => $id,
             "name" => $name,
+            "weight" => $weight,
             "description" => $description,
-			"price" => $price,
-            "category_id" => $category_id,            
-			"created" => $created,
-            "modified" => $modified			
+            "calories" => $calories,            
+			"nutrition_data" => $nutrition_data,
         ); 
-        //TODO
-       array_push($itemRecords["meals"], $itemDetails);
+
+       array_push($mealRecords["meals"], $mealDetails);
     }    
     http_response_code(200);     
     echo json_encode($itemRecords);

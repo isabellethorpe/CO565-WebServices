@@ -35,12 +35,18 @@ if (isset($_SESSION['id'])) {
 
    <h2>Add Meal</h2>
    <form name="frmeditmeal" action="" method="post">
+   <div class="form-group">
    Name :
-   <input name="name" type="text" value="" /><br/>
+   <input name="name" type="text" value="" class="form-control"/>
+   </div><br/>
+   <div class="form-group">
    Weight :
-   <input name="weight" type="text" value="" /><br/>
+   <input name="weight" type="text" value="" class="form-control"/>
+   </div><br/>
+   <div class="form-group">
    Description :
-   <input name="description" type="text" value="" /><br/>
+   <input name="description" type="text" value="" class="form-control"/>
+   </div><br/>
    <input type="submit" value="Save" name="submit"/>
    </form>
 EOD;
